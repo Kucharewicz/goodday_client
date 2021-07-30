@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+     <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+    <link rel="stylesheet"
+          href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+          integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+
+          crossorigin="anonymous">
+</head>
+<body>
+
+<div class="container-fluid text-center">
+    <div layout:fragment="content" align="left">
+        <a th:href="@{/}" class="btn btn-primary"><i
+                class="fas fa-home fa-2x"></i></a>
+        <a th:href="@{/tasks}" class="btn btn-primary"><i
+                class="fas fa-angle-left fa-2x"></i></a>
+    </div>
+    <div>
+    <div>
+        <img class="img-fluid" th:src="${'https://vapromag.co.uk/wp-content/uploads/2017/01/Small-steps-to-achieve-more.jpg'}" />
+    </div>
+    <br/>
+    <br/>
+    <br/>
+    <form th:action="@{/createOrUpdateTask}" method="post" th:object="${task}" style="max-width: 350px; margin: 0 auto;">
+        <div class="border border-secondary p-3 rounded">
+            <p><b>WPISZ CEL I SUKCES</b></p>
+            <p>
+                <input type="text" name="cel" th:field="*{task}" class="form-control" placeholder="Task" required autofocus/>
+            </p>
+            <p>
+                <input type="text" name="sukces" th:field="*{success}" class="form-control" placeholder="Sukces" required />
+            </p>
+            <p>
+                <input type="submit" value="Zapisz" class="btn btn-primary" />
+            </p>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
